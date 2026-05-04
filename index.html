@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akash Verma - MIS Executive & Full Stack Developer</title>
+    <meta name="description" content="Akash Verma - MIS Executive, Automation & Data Analyst, Full Stack Developer">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <i class="fas fa-code"></i>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#calculator" class="nav-link">Age Calculator</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="mailto:akashverma231217@gmail.com" class="nav-icon">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title fade-in">Akash Verma</h1>
+            <p class="hero-subtitle fade-in-delay">MIS Executive | Automation & Data Analyst | Full Stack Developer</p>
+            <div class="hero-cta fade-in-delay-2">
+                <a href="#calculator" class="btn btn-primary">Try Age Calculator</a>
+                <a href="#projects" class="btn btn-secondary">View Projects</a>
+            </div>
+            <div class="hero-image fade-in-delay-3">
+                <div class="profile-glow"></div>
+                <div class="profile-card">
+                    <div class="profile-initials">AV</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>Scroll to explore</p>
+        </div>
+    </section>
+
+    <!-- Age Calculator Section -->
+    <section class="calculator-section" id="calculator">
+        <div class="section-container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Age Calculator</h2>
+                <p class="section-description">Calculate your precise age down to the second</p>
+            </div>
+            
+            <div class="calculator-wrapper">
+                <div class="calculator-visual">
+                    <div class="floating-cards">
+                        <div class="float-card card-1">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Precise</span>
+                        </div>
+                        <div class="float-card card-2">
+                            <i class="fas fa-clock"></i>
+                            <span>Real-time</span>
+                        </div>
+                        <div class="float-card card-3">
+                            <i class="fas fa-bolt"></i>
+                            <span>Fast</span>
+                        </div>
+                    </div>
+                    <div class="cube-container">
+                        <div class="cube">
+                            <div class="cube-face cube-front">AGE</div>
+                            <div class="cube-face cube-back">TIME</div>
+                            <div class="cube-face cube-right">DATE</div>
+                            <div class="cube-face cube-left">LIVE</div>
+                            <div class="cube-face cube-top">NOW</div>
+                            <div class="cube-face cube-bottom">SEC</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calculator-form-container">
+                    <form class="age-form" id="ageForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-birthday-cake"></i>
+                                    Date of Birth
+                                </label>
+                                <input type="date" id="inputDob" class="form-input" required />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-clock"></i>
+                                    Birth Time
+                                </label>
+                                <input type="time" id="birthTime" class="form-input" step="1" />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-calendar-check"></i>
+                                    Calculate Date
+                                </label>
+                                <input type="date" id="cdate" class="form-input" required />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-stopwatch"></i>
+                                    Current Time
+                                </label>
+                                <input type="time" id="currentTime" class="form-input" step="1" />
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-large">
+                                <i class="fas fa-calculator"></i>
+                                Calculate Age
+                            </button>
+                            <button type="button" class="btn btn-outline btn-large" id="liveToggle">
+                                <i class="fas fa-play"></i>
+                                Start Live Timer
+                            </button>
+                        </div>
+
+                        <div class="error-message" id="errorMessage"></div>
+                    </form>
+
+                    <div class="results-container" id="resultsContainer">
+                        <div class="results-header">
+                            <h3>Your Precise Age</h3>
+                            <div class="live-indicator" id="liveIndicator">
+                                <span class="pulse"></span>
+                                LIVE
+                            </div>
+                        </div>
+                        
+                        <div class="age-grid" id="ageGrid">
+                            <div class="age-item">
+                                <div class="age-number" id="years">00</div>
+                                <div class="age-label">Years</div>
+                            </div>
+                            <div class="age-item">
+                                <div class="age-number" id="months">00</div>
+                                <div class="age-label">Months</div>
+                            </div>
+                            <div class="age-item">
+                                <div class="age-number" id="days">00</div>
+                                <div class="age-label">Days</div>
+                            </div>
+                            <div class="age-item">
+                                <div class="age-number" id="hours">00</div>
+                                <div class="age-label">Hours</div>
+                            </div>
+                            <div class="age-item">
+                                <div class="age-number" id="minutes">00</div>
+                                <div class="age-label">Minutes</div>
+                            </div>
+                            <div class="age-item">
+                                <div class="age-number" id="seconds">00</div>
+                                <div class="age-label">Seconds</div>
+                            </div>
+                        </div>
+
+                        <div class="age-summary" id="ageSummary">
+                            Enter your birth details to calculate your precise age
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+        <div class="section-container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Technical Expertise</h2>
+                <p class="section-description">Technologies I work with</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Development</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Database & Cloud</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Google Cloud</span>
+                        <span class="skill-tag">APIs</span>
+                        <span class="skill-tag">Cloud Computing</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Automation & AI</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">N8N</span>
+                        <span class="skill-tag">AI Agents</span>
+                        <span class="skill-tag">Gemini AI</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Data Analytics</span>
+                        <span class="skill-tag">Zoho Flow</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience-section" id="experience">
+        <div class="section-container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Work Experience</h2>
+                <p class="section-description">My professional journey</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>MIS Executive & Automation Data Analyst</h3>
+                            <div class="timeline-meta">
+                                <span class="company">Kan Universal Pvt Ltd</span>
+                                <span class="duration">Aug 2025 – Present</span>
+                            </div>
+                        </div>
+                        <ul class="timeline-list">
+                            <li>Automated end-to-end organizational workflows across multiple levels</li>
+                            <li>Built real-time analytics dashboards using Google Sheets & Looker Studio</li>
+                            <li>Developed MIS Score system based on TAT, KPI, KRA performance tracking</li>
+                            <li>Automated WhatsApp, Telegram & Email notifications via APIs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>MIS Executive & Automation</h3>
+                            <div class="timeline-meta">
+                                <span class="company">Absolut Info System Pvt Ltd</span>
+                                <span class="duration">May 2025 – Aug 2025</span>
+                            </div>
+                        </div>
+                        <ul class="timeline-list">
+                            <li>Automated end-to-end internal data workflows across departments</li>
+                            <li>Built multi-level approval & task delegation systems</li>
+                            <li>Developed real-time dashboards & analytics systems</li>
+                            <li>Integrated WhatsApp, Telegram & Email automation systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="section-container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-description">Showcasing my best work</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3>Inventory & Stock Automation</h3>
+                    <p>AI-powered stock tracking system with real-time analytics, automated alerts, and workflow automation using WhatsApp API and Gemini AI.</p>
+                    <div class="project-tech">
+                        <span>Google Sheets</span>
+                        <span>WhatsApp API</span>
+                        <span>Gemini AI</span>
+                        <span>N8N</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <h3>Quotation & Vendor Automation</h3>
+                    <p>Multi-level quotation versioning system with nested reference tracking and automated analytics dashboard.</p>
+                    <div class="project-tech">
+                        <span>APIs</span>
+                        <span>N8N</span>
+                        <span>Looker Studio</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Order to Delivery FMS</h3>
+                    <p>End-to-end order lifecycle tracking system with real-time updates and automated workflow management.</p>
+                    <div class="project-tech">
+                        <span>Google Sheets</span>
+                        <span>APIs</span>
+                        <span>Automation</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-Commerce Platforms</h3>
+                    <p>Amazon & Myntra clone with dynamic components, responsive UI using React, Tailwind CSS, and API integration.</p>
+                    <div class="project-tech">
+                        <span>React.js</span>
+                        <span>Tailwind</span>
+                        <span>API</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="section-container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-description">Let's work together</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <a href="mailto:akashverma231217@gmail.com">akashverma231217@gmail.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <a href="tel:+918957854335">+91-8957854335</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Location</h3>
+                    <p>Delhi-NCR, India</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <a href="https://linkedin.com/in/akash-verma16" target="_blank">linkedin.com/in/akash-verma16</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Akash Verma</h4>
+                    <p>MIS Executive | Automation & Data Analyst | Full Stack Developer</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/akash-verma16" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/akashverma250415" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:akashverma231217@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#calculator">Age Calculator</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Education</h4>
+                    <ul>
+                        <li>B.Tech IT - 2025</li>
+                        <li>Galgotias College</li>
+                        <li>Greater Noida, UP</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Akash Verma. All rights reserved.</p>
+                <p>DOB: 16 Jan 2002</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
